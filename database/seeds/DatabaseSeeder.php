@@ -41,11 +41,5 @@ class DatabaseSeeder extends Seeder
          * Asignamos el rol antes creado al usuario.
          */
         $user->assign('admin');
-
-        /**
-         * Este es un rol para los propietarios de los comentarios donde unicamente ellos pueden
-         * eliminar sus posts.
-         */
-        Bouncer::allow('author')->toOwn(Comment::class)->to('delete');
     }
 }

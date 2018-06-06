@@ -15,7 +15,11 @@ class CommentController extends Controller
             'body' => $request->get('body')
         ]);
 
-        auth()->user()->assign('author');
+        /**
+         * Le asignamos al usuario creador del comentario la habilidad de 
+         * poder eliminar su comentario.
+         */
+        auth()->user()->allow('delete', $comment);
 
         return back();
     }
